@@ -39,6 +39,7 @@
         href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
         rel='stylesheet' type='text/css'>
     <!-- //fonts -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <script type="text/javascript">
         $(document).ready(function() {
             $('#horizontalTab').easyResponsiveTabs({
@@ -57,12 +58,13 @@
 <body>
     @include('frontend.layouts.header')
     @yield('main_section')
-    {{-- @include('frontend.layouts.footer') --}}
     @include('frontend.layouts.footer')
     <script defer src="{{ asset('public/assets/frontend/js/jquery.flexslider.js') }}"></script>
     <script src="{{ asset('public/assets/frontend/js/easyResponsiveTabs.js') }}" type="text/javascript"></script>
     <script src="{{ asset('public/assets/frontend/js/jquery-ui.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/assets/frontend/js/script.js') }}"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
     <script type="text/javascript">
         $(function() {
             SyntaxHighlighter.all();

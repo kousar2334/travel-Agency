@@ -40,43 +40,25 @@
                     </a>
                 </li>
                 <!--Hotel Booking Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.hotel.bookings']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.hotel.bookings') }}"
+                        class="{{ Request::routeIs(['admin.hotel.bookings']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-bed"></i>
                         <p>
-                            Hotel Booking
-                            <i class="fas fa-angle-left right"></i>
+                            Hotel Bookings
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
-
-                    </ul>
                 </li>
                 <!--End Hotel Booking Module-->
                 <!-- Air Tickets Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.air.tickets']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.air.tickets') }}"
+                        class="{{ Request::routeIs(['admin.air.tickets']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-plane"></i>
                         <p>
                             Air Tickets
-                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
-
-                    </ul>
                 </li>
                 <!--End  Air Tickets Module-->
                 <!-- Package Tour-->

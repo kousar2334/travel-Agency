@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\FlightController;
+use App\Http\Controllers\Frontend\HotelsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,14 @@ Route::get('/', function () {
 
 //Fligts Routes
 Route::view('/flights', 'frontend.pages.flight.index')->name('frontend.flight');
+Route::post('/flight-request',  [FlightController::class, 'flightRequest'])->name('frontend.flight.request');
 
 //Hotels
 Route::view('/hotels', 'frontend.pages.hotels.index')->name('frontend.hotels');
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::post('/hotel-booking',  [HotelsController::class, 'hotelBooking'])->name('frontend.hotels.booking');
+});
+
 
 //Hajj
 Route::view('/hajj-umrah', 'frontend.pages.hajj.index')->name('frontend.hajj');
