@@ -73,4 +73,69 @@ class SettingController extends Controller
             return redirect()->back();
         }
     }
+    /**
+     * Will return email settings
+     * 
+     * @return mixed
+     */
+    public function emailSettings()
+    {
+        return view('admin.pages.settings.email');
+    }
+    /**
+     * Will update email settings
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     * 
+     */
+    public function updateEmailSettings(Request $request)
+    {
+        try {
+            setEnvironmentValue('MAIL_HOST', $request->host);
+            setEnvironmentValue('MAIL_PORT', $request->port);
+            setEnvironmentValue('MAIL_USERNAME', $request->username);
+            setEnvironmentValue('MAIL_PASSWORD', $request->password);
+            setEnvironmentValue('MAIL_ENCRYPTION', $request->encryption);
+            setEnvironmentValue('MAIL_FROM_ADDRESS', $request->mail_form);
+            return redirect()->route('admin.setting.email');
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
+    }
+    /**
+     * Will return about us setting page
+     * 
+     * @return mixed
+     */
+    public function aboutUs()
+    {
+        return view('admin.pages.settings.about_us')->with(
+            [
+                'settings' => GeneralSettings::first()
+            ]
+        );
+    }
+    /**
+     * Will update about us
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function updateAboutUs(Request $request)
+    {
+        try {
+
+            DB::beginTransaction();
+            DB::table('general_settings')->where('id', $request->id)
+                ->update([
+                    'about_us' => $request->about_us
+                ]);
+            DB::commit();
+            return redirect()->route('admin.setting.about.us');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back();
+        }
+    }
 }

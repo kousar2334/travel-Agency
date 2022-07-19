@@ -145,7 +145,7 @@ $siteInfo = siteInfo();
                 <!--End Tourist Visa Module-->
                 <!-- Settings Visa-->
                 <li
-                    class="{{ Request::routeIs(['admin.setting.general']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.setting.about.us', 'admin.setting.email', 'admin.setting.general']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
@@ -162,7 +162,8 @@ $siteInfo = siteInfo();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.setting.email') }}"
+                                class="{{ Request::routeIs('admin.setting.email') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Email Settings</p>
                             </a>
@@ -174,7 +175,8 @@ $siteInfo = siteInfo();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.setting.about.us') }}"
+                                class="{{ Request::routeIs('admin.setting.about.us') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>About Us</p>
                             </a>
