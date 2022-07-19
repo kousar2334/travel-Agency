@@ -23,8 +23,9 @@ Route::get('/', function () {
 
 //Fligts Routes
 Route::view('/flights', 'frontend.pages.flight.index')->name('frontend.flight');
-Route::post('/flight-request',  [FlightController::class, 'flightRequest'])->name('frontend.flight.request');
-
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::post('/flight-booking-request',  [FlightController::class, 'flightBookingRequest'])->name('frontend.flight.booking.request');
+});
 //Hotels
 Route::view('/hotels', 'frontend.pages.hotels.index')->name('frontend.hotels');
 Route::group(['middleware' => 'auth:user'], function () {

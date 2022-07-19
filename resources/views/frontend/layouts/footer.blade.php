@@ -1,10 +1,13 @@
+@php
+$siteInfo = siteInfo();
+@endphp
 <div class="footer">
     <!-- container -->
     <div class="container">
         <div class="footer-bottom-top-grids">
             <div class="col-md-3 footer-grid">
                 <div class="logo">
-                    <h1><a href="{{ route('home') }}"><span>BD</span>Travel</a></h1>
+                    <h3><a href="{{ route('home') }}">{{ $siteInfo->site_name }}</a></h3>
                 </div>
                 <ul>
                     <li><a href="about.html">About Us</a></li>

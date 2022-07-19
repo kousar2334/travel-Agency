@@ -1,12 +1,14 @@
+@php
+$siteInfo = siteInfo();
+@endphp
 <aside class="main-sidebar elevation-4 sidebar-dark-maroon">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link navbar-secondary">
-        {{-- @if ($siteInfo->logo != null)
-            <img src="{{ asset('/') }}{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
+        @if ($siteInfo->logo != null)
+            <img src="{{ asset('/public') }}/{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
         @else
             <span class="brand-text bangla-font font-weight-light text-center"> {{ $siteInfo->site_name }}</span>
-        @endif --}}
-        Travel Agency
+        @endif
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -16,8 +18,8 @@
                 @if (!empty(Auth::user()->image))
                     <img src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
                 @else
-                    <img src="{{ asset('/public/assets/backend/images/no-image.png') }}" class="img-circle elevation-2"
-                        alt="User Image">
+                    <img src="{{ asset('/public/assets/backend/images/no-image.png') }}"
+                        class="img-circle elevation-2" alt="User Image">
                 @endif
 
             </div>
@@ -142,7 +144,8 @@
                 </li>
                 <!--End Tourist Visa Module-->
                 <!-- Settings Visa-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li
+                    class="{{ Request::routeIs(['admin.setting.general']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
@@ -152,12 +155,30 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.setting.general') }}"
+                                class="{{ Request::routeIs('admin.setting.general') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
+                                <p>General Settings</p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>Email Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>Social Accounts</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>About Us</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!--End Settings Module-->

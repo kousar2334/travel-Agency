@@ -1,3 +1,6 @@
+@php
+$siteInfo = siteInfo();
+@endphp
 <!DOCTYPE html>
 <html>
 
@@ -37,13 +40,16 @@
 
 <body class="hold-transition body">
     <div class="login-box">
-        <div class="login-logo">
-            <img src="{{ asset('/static/logo/logo.png') }}" alt="AdminLTE Logo" class="brand-image">
-        </div>
-        <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <div class="login-logo">
+                    @if ($siteInfo->logo != null)
+                        <img src="{{ asset('/public') }}/{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
+                    @else
+                        <span class="brand-text bangla-font font-weight-light text-center">
+                            {{ $siteInfo->site_name }}</span>
+                    @endif
+                </div>
 
                 <form method="post" action="{{ route('admin.login') }}">
                     @csrf
@@ -64,19 +70,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success btn-block">Sign In</button>
                         </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <!-- /.col -->
                     </div>
                 </form>
                 <!-- /.login-card-body -->

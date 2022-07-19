@@ -1,8 +1,14 @@
+@php
+$siteInfo = siteInfo();
+@endphp
 <footer class="main-footer">
     <div class="row">
         <div class="col-md-6">
-            <span><img src="{{ asset('/static/images/bondhon.png') }}" width="110px">
-                <sub>1.0.0</sub></span>
+            @if ($siteInfo->logo != null)
+                <img src="{{ asset('/public') }}/{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
+            @else
+                <span class="brand-text bangla-font font-weight-light text-center"> {{ $siteInfo->site_name }}</span>
+            @endif
 
             <div>
                 Copyright © 2022. Source files include multiple proprietary assets

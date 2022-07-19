@@ -1,9 +1,12 @@
+@php
+$site_info = siteInfo();
+@endphp
 <!--header-->
 <div class="header">
     <div class="container">
         <div class="header-grids">
             <div class="logo">
-                <h1><a href="{{ route('home') }}"><span>BD</span>Travel</a></h1>
+                <h1><a href="{{ route('home') }}">{{ $site_info->site_name }}</a></h1>
 
             </div>
             <!--navbar-header-->
@@ -11,7 +14,7 @@
                 <div class="emergency-grid">
                     <ul>
                         <li>Call Us : </li>
-                        <li class="call">+8801773340092</li>
+                        <li class="call">{{ $site_info->phone }}</li>
                     </ul>
                 </div>
                 <div class="clearfix"> </div>
