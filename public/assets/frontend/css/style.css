@@ -741,6 +741,12 @@ input[type="submit"] {
 	outline: none;
 }
 
+.text-small-regular {
+	color: #777;
+	font-size: .9em;
+	text-decoration: none;
+}
+
 input[type="submit"]:hover {
 	background: #337AB7;
 	transition: 0.5s all;

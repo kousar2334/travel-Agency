@@ -11,7 +11,7 @@ class HotelsController extends Controller
     public function index()
     {
         return view('admin.pages.hotel_booking')->with([
-            'bookings' => HoltelBooking::all()
+            'bookings' => HoltelBooking::orderBy('id', 'DESC')->get()
         ]);
     }
 }

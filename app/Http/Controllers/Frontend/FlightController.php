@@ -32,7 +32,7 @@ class FlightController extends Controller
             // $data = $booking;
             // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
 
-            Toastr::success('Flight Booking Request Sending Successfully', 'Success');
+            Toastr::success('Flight Booking Request Sending Successfully');
             return redirect()->route('home');
         } catch (\Exception $e) {
             dd($e);

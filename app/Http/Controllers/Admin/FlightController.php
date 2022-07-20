@@ -10,7 +10,7 @@ class FlightController extends Controller
     public function index()
     {
         return view('admin.pages.flights')->with([
-            'bookings' => FlightBooking::all()
+            'bookings' => FlightBooking::orderBy('id', 'DESC')->get()
         ]);
     }
 }

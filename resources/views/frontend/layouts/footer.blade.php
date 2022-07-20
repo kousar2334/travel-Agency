@@ -6,12 +6,10 @@ $siteInfo = siteInfo();
     <div class="container">
         <div class="footer-bottom-top-grids">
             <div class="col-md-3 footer-grid">
-                <div class="logo">
-                    <h3><a href="{{ route('home') }}">{{ $siteInfo->site_name }}</a></h3>
-                </div>
+                <h3><a href="{{ route('home') }}">{{ $siteInfo->site_name }}</a></h3>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="faqs.html">Contact us</a></li>
 
                 </ul>
             </div>
@@ -46,7 +44,7 @@ $siteInfo = siteInfo();
             </div>
             <div class="clearfix"> </div>
             <div class="copyright">
-                <p>Copyrights © 2015 Govihar . Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                <p>Copyrights © 2022 {{ $siteInfo->site_name }}</p>
             </div>
         </div>
     </div>

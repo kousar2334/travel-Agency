@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\FlightController;
 use App\Http\Controllers\Frontend\HotelsController;
+use App\Http\Controllers\Frontend\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,7 @@ Route::view('/package-tour', 'frontend.pages.package_tour.index')->name('fronten
 
 //Contact us
 Route::view('/contact-us', 'frontend.pages.contact_us.index')->name('frontend.contact.us');
-
+Route::post('/store-contact-us-message', [ContactUsController::class, 'storeContactUs'])->name('frontend.contact.us.store');
 //Auth
 Route::get('/login', [UserController::class, 'loginPage'])->name('frontend.login');
 Route::post('/login', [UserController::class, 'login'])->name('frontend.login.process');

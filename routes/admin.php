@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FlightController;
 use App\Http\Controllers\Admin\HotelsController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ContactUsController;
 
 Route::get('/login', [AdminController::class, 'loginForm'])->name('admin.login.form');
 Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
@@ -22,6 +23,9 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
 
     //Hotel Bookings
     Route::get('/hotel-bookings', [HotelsController::class, 'index'])->name('admin.hotel.bookings');
+
+    //contact us
+    Route::get('/contact-us-messages', [ContactUsController::class, 'messages'])->name('admin.contact.messages');
 
     //Settings
     Route::get('/general-settings', [SettingController::class, 'generalSettings'])->name('admin.setting.general');

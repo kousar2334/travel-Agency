@@ -143,6 +143,48 @@ $siteInfo = siteInfo();
                     </ul>
                 </li>
                 <!--End Tourist Visa Module-->
+                <!-- Messages Module-->
+                <li class="{{ Request::routeIs(['admin.contact.messages']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.contact.messages') }}"
+                        class="{{ Request::routeIs(['admin.contact.messages']) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-envelope"></i>
+                        <p>
+                            Messages
+                        </p>
+                    </a>
+                </li>
+                <!--End  Messages Module-->
+                <!-- Tourist Visa-->
+                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-bullhorn"></i>
+                        <p>
+                            Promotions
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>Ads</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>Top Deals</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>Scollings</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--End Tourist Visa Module-->
                 <!-- Settings Visa-->
                 <li
                     class="{{ Request::routeIs(['admin.setting.about.us', 'admin.setting.email', 'admin.setting.general']) ? 'menu-open' : '' }} nav-item has-treeview">
