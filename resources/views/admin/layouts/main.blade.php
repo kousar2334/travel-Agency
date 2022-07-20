@@ -94,14 +94,14 @@
 
     <!--Toaster-->
     <script src="{{ asset('/public/assets/backend/js/toastr.min.js') }}"></script>
-    {{-- {!! Toastr::message() !!} --}}
-    <script>
+    {!! Toastr::message() !!}
+    {{-- <script>
         @if (count($errors) > 0)
             @foreach ($errors->all() as $error)
                 toastr.error("{{ $error }}");
             @endforeach
         @endif
-    </script>
+    </script> --}}
     <!--End toaster-->
     @yield('custom_script')
 </body class="hold-transition sidebar-mini layout-navbar-fixed">

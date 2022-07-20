@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FlightController;
 use App\Http\Controllers\Admin\HotelsController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\PromotionController;
 
 Route::get('/login', [AdminController::class, 'loginForm'])->name('admin.login.form');
 Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
@@ -34,4 +35,10 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/update-email-settings', [SettingController::class, 'updateEmailSettings'])->name('admin.setting.email.update');
     Route::get('/about-us', [SettingController::class, 'aboutUs'])->name('admin.setting.about.us');
     Route::post('/update-about-us', [SettingController::class, 'updateAboutUs'])->name('admin.setting.about.us.update');
+
+    //Promotions
+    Route::get('/campains', [PromotionController::class, 'campains'])->name('admin.promotion.campain');
+    Route::get('/create-new-campain', [PromotionController::class, 'newCampain'])->name('admin.promotion.campain.new');
+    Route::post('/store-new-campain', [PromotionController::class, 'storeNewCampain'])->name('admin.promotion.campain.new.store');
+    Route::post('/delete-campain', [PromotionController::class, 'deleteCampain'])->name('admin.promotion.campain.delete');
 });

@@ -67,6 +67,7 @@ class SettingController extends Controller
                     'address' => $request->address
                 ]);
             DB::commit();
+            toastNofication('success', 'Settings updated successfully');
             return redirect()->route('admin.setting.general');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -98,6 +99,7 @@ class SettingController extends Controller
             setEnvironmentValue('MAIL_PASSWORD', $request->password);
             setEnvironmentValue('MAIL_ENCRYPTION', $request->encryption);
             setEnvironmentValue('MAIL_FROM_ADDRESS', $request->mail_form);
+            toastNofication('success', 'Email settings updated successfully');
             return redirect()->route('admin.setting.email');
         } catch (\Exception $e) {
             return redirect()->back();
@@ -132,6 +134,7 @@ class SettingController extends Controller
                     'about_us' => $request->about_us
                 ]);
             DB::commit();
+            toastNofication('success', 'About us updated successfully');
             return redirect()->route('admin.setting.about.us');
         } catch (\Exception $e) {
             DB::rollBack();

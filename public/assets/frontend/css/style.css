@@ -747,6 +747,11 @@ input[type="submit"] {
 	text-decoration: none;
 }
 
+.campain-banner {
+	max-width: 300px;
+	max-height: 200px;
+}
+
 input[type="submit"]:hover {
 	background: #337AB7;
 	transition: 0.5s all;

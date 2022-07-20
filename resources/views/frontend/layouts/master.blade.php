@@ -1,11 +1,15 @@
+@php
+$site_info = siteInfo();
+@endphp
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>
         @yield('page_title')
-        | DB Travel
+        | {{ $site_info->site_name }}
     </title>
+    <link rel="shortcut icon" href="{{ asset('/public') }}/{{ $site_info->favicon }}">
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,7 +26,8 @@
         }
     </script>
     <!-- //Custom Theme files -->
-    <link href="{{ asset('public/assets/frontend/css/bootstrap.css') }}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{ asset('public/assets/frontend/css/bootstrap.css') }}" type="text/css" rel="stylesheet"
+        media="all">
     <link href="{{ asset('public/assets/frontend/css/style.css') }}" type="text/css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="{{ asset('public/assets/frontend/css/flexslider.css') }}" type="text/css"
         media="screen" />

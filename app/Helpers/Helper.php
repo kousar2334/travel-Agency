@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Campains;
 use App\Models\GeneralSettings;
+use Brian2694\Toastr\Facades\Toastr;
 
 if (!function_exists('siteInfo')) {
     function siteInfo()
@@ -19,6 +21,33 @@ if (!function_exists('setEnvironmentValue')) {
                 $name . '=' . $value,
                 file_get_contents($path)
             ));
+        }
+    }
+}
+
+if (!function_exists('activeCampains')) {
+    function activeCampains()
+    {
+        return Campains::where('status', 1)->orderBy('id', 'DESC')->get();
+    }
+}
+
+if (!function_exists('toastNofication')) {
+    /**
+     * Set toast message
+     *
+     * @param String $type
+     * @param String $message
+     * @return void
+     */
+    function toastNofication($type, $message)
+    {
+        try {
+            Toastr::$type($message);
+        } catch (\Exception $e) {
+            dd($e);
+        } catch (\Error $e) {
+            dd($e);
         }
     }
 }

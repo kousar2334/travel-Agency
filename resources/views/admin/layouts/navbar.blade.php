@@ -64,83 +64,47 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End  Air Tickets Module-->
                 <!-- Package Tour-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Package Tour
-                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
                 <!--End Package Tour Module-->
                 <!-- HAJJ & UMRAH -->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
                             Hajj & Umrah
-                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
                 <!--End  HAJJ & UMRAH  Module-->
                 <!-- Student Visa-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-graduation-cap"></i>
                         <p>
                             Student Visa
-                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
                 <!--End Student Visa Module-->
                 <!-- Tourist Visa-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
                             Tourist Visa
-                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
                 <!--End Tourist Visa Module-->
                 <!-- Messages Module-->
@@ -155,7 +119,8 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End  Messages Module-->
                 <!-- Tourist Visa-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li
+                    class="{{ Request::routeIs(['admin.promotion.campain.new', 'admin.promotion.campain']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-bullhorn"></i>
                         <p>
@@ -165,15 +130,16 @@ $siteInfo = siteInfo();
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.promotion.campain') }}"
+                                class="{{ Request::routeIs('admin.promotion.campain') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Ads</p>
+                                <p>Campains</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Top Deals</p>
+                                <p>Deals</p>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -6,7 +6,12 @@ $site_info = siteInfo();
     <div class="container">
         <div class="header-grids">
             <div class="logo">
-                <h1><a href="{{ route('home') }}">{{ $site_info->site_name }}</a></h1>
+                @if ($site_info->logo != null)
+                    <img src="{{ asset('/public') }}/{{ $site_info->logo }}" alt="Logo" class="brand-image">
+                @else
+                    <h1><a href="{{ route('home') }}">{{ $site_info->site_name }}</a></h1>
+                @endif
+
 
             </div>
             <!--navbar-header-->

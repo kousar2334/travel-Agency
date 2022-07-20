@@ -1,33 +1,21 @@
+@php
+$campains = activeCampains();
+@endphp
+
 <div class="popular-grids">
     <!-- container -->
     <div class="container">
-        {{-- <div class="popular-info">
-            <h3>Popular Places</h3>
-        </div> --}}
         <!-- slider -->
         <div class="slider">
             <div class="arrival-grids">
                 <ul id="flexiselDemo1">
-                    <li>
-                        <a href="products.html"><img src="{{ asset('public/assets/frontend/images/a3.jpg') }}"
-                                alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="products.html"><img src="{{ asset('public/assets/frontend/images/a2.jpg') }}"
-                                alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="products.html"><img src="{{ asset('public/assets/frontend/images/a4.jpg') }}"
-                                alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="products.html"><img src="{{ asset('public/assets/frontend/images/a1.jpg') }}"
-                                alt="" />
-                        </a>
-                    </li>
+                    @foreach ($campains as $key => $campain)
+                        <li>
+                            <a href="products.html"><img src="{{ asset('public/') }}/{{ $campain->banner }}"
+                                    alt="{{ $campain->title }}" class="campain-banner" />
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
                 <script type="text/javascript">
                     $(window).load(function() {
