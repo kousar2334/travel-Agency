@@ -100,8 +100,9 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End Student Visa Module-->
                 <!-- Tourist Visa-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.visa.tourist.queries']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.visa.tourist.queries') }}"
+                        class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
                             Tourist Visa

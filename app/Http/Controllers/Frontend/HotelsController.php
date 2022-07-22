@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\HoltelBooking;
 use App\Mail\HotelBookingEmail;
 use App\Http\Controllers\Controller;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Mail;
 
@@ -33,10 +32,10 @@ class HotelsController extends Controller
             $data = $booking;
             Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
 
-            Toastr::success('Hotel Booking Request Sending Successfully', 'Success');
+            toastNofication('success', 'Hotel Booking Request Sending Successfully');
             return redirect()->route('home');
         } catch (\Exception $e) {
-            Toastr::error('Request Sending Failed', 'Failed');
+            toastNofication('error', 'Request Sending Failed');
             return redirect()->back();
         }
     }

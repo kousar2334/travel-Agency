@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     //student visa
     Route::get('/student-visa-queries', [VisaController::class, 'studentVisaQueries'])->name('admin.visa.student.queries');
 
+    //tourist visa
+    Route::get('/tourist-visa-queries', [VisaController::class, 'touristVisaQueries'])->name('admin.visa.tourist.queries');
+
     //student visa
     Route::get('/package-tour-queries', [TourController::class, 'packageTourQueries'])->name('admin.tour.package.queries');
 

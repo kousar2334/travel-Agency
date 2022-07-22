@@ -46,8 +46,12 @@ Route::view('/student-visa', 'frontend.pages.student_visa.index')->name('fronten
 Route::group(['middleware' => 'auth:user'], function () {
     Route::post('/store-student-visa-query',  [VisaController::class, 'storeStudentVisaQuery'])->name('frontend.visa.student.store.query');
 });
+
 //Tourist visa
 Route::view('/tourist-visa', 'frontend.pages.tourist_visa.index')->name('frontend.visa.tourist');
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::post('/store-tourist-visa-query',  [VisaController::class, 'storeTouristVisaQuery'])->name('frontend.visa.tourist.store.query');
+});
 
 //Package tour
 Route::view('/package-tour', 'frontend.pages.package_tour.index')->name('frontend.tour.package');
