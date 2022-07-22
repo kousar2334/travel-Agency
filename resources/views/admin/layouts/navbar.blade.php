@@ -87,8 +87,9 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End  HAJJ & UMRAH  Module-->
                 <!-- Student Visa-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.visa.student.queries']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.visa.student.queries') }}"
+                        class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-graduation-cap"></i>
                         <p>
                             Student Visa

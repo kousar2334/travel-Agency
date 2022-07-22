@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Frontend\HajjController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\VisaController;
 use App\Http\Controllers\Frontend\FlightController;
 use App\Http\Controllers\Frontend\HotelsController;
 use App\Http\Controllers\Frontend\ContactUsController;
@@ -41,7 +42,9 @@ Route::post('/hajj-umrah-send-query', [HajjController::class, 'storeHajjQuery'])
 
 //student visa
 Route::view('/student-visa', 'frontend.pages.student_visa.index')->name('frontend.visa.student');
-
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::post('/store-student-visa-query',  [VisaController::class, 'storeStudentVisaQuery'])->name('frontend.visa.student.store.query');
+});
 //Tourist visa
 Route::view('/tourist-visa', 'frontend.pages.tourist_visa.index')->name('frontend.visa.tourist');
 

@@ -50,49 +50,51 @@
                                 <div class="online_reservation">
                                     <div class="b_room">
                                         <div class="booking_room">
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Which country are you planning to study in?</h5>
-                                                        <div class="book_date">
-                                                            <form>
+                                            <form method="POST" action="{{ route('frontend.visa.student.store.query') }}">
+                                                @csrf
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Which country are you planning to study in?</h5>
+                                                            <div class="book_date">
                                                                 <span class="glyphicon glyphicon-map-marker"
                                                                     aria-hidden="true"></span>
-                                                                <input type="text" placeholder="Country Name"
+                                                                <input type="text" name="country"
+                                                                    value="{{ old('country') }}" placeholder="Country Name"
                                                                     class="typeahead1 input-md form-control tt-input"
                                                                     required="">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Which Degree do you want to pursue?</h5>
-                                                        <div class="book_date">
-                                                            <select name="class" class="frm-field required">
-                                                                <option value="Bachelor">Bachelor's</option>
-                                                                <option value="Master">Master's</option>
-                                                            </select>
-                                                        </div>
-                                                    </li>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Which Degree do you want to pursue?</h5>
+                                                            <div class="book_date">
+                                                                <select name="degree" value="{{ old('degree') }}"
+                                                                    class="frm-field required">
+                                                                    <option value="Bachelor">Bachelor's</option>
+                                                                    <option value="Master">Master's</option>
+                                                                </select>
+                                                            </div>
+                                                        </li>
 
-                                                    <div class="clearfix"></div>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_3">
-                                                        <div class="date_btn">
-                                                            <form>
+                                                        <div class="clearfix"></div>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_3">
+                                                            <div class="date_btn">
                                                                 <input type="submit" value="Sumbit" />
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                    <div class="clearfix"></div>
-                                                </ul>
-                                            </div>
+                                                            </div>
+                                                        </li>
+                                                        <div class="clearfix"></div>
+                                                    </ul>
+                                                </div>
+                                            </form>
+
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>

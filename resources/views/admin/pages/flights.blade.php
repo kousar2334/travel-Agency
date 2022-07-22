@@ -37,7 +37,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>#</th>
                                         <th>Name</th>
                                         <th>Mobile</th>
                                         <th>Destination</th>

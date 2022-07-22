@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HajjController;
+use App\Http\Controllers\Admin\VisaController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FlightController;
 use App\Http\Controllers\Admin\HotelsController;
@@ -25,6 +26,9 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
 
     //Hajj 
     Route::get('/hajj-queries', [HajjController::class, 'hajjQueries'])->name('admin.hajj.queries');
+
+    //student visa
+    Route::get('/student-visa-queries', [VisaController::class, 'studentVisaQueries'])->name('admin.visa.student.queries');
 
     //Hotel Bookings
     Route::get('/hotel-bookings', [HotelsController::class, 'index'])->name('admin.hotel.bookings');
