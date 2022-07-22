@@ -55,8 +55,7 @@
                                             <input type="text" name="encryption" value="{{ env('MAIL_ENCRYPTION') }}"
                                                 class="form-control" placeholder="Enter encryption">
                                             @if ($errors->has('encryption'))
-                                                <small
-                                                    class="text text-danger">{{ $errors->first('encryption') }}</small>
+                                                <small class="text text-danger">{{ $errors->first('encryption') }}</small>
                                             @endif
                                         </div>
                                         <div class="form-group">
@@ -84,7 +83,7 @@
                             <h3 class="card-title">Test Mail</h3>
                         </div>
                         <div class="card-body">
-                            <form role="form" action="{{ route('admin.setting.email.update') }}" method="POST">
+                            <form role="form" action="{{ route('admin.setting.email.test') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -99,7 +98,7 @@
                                         <div class="form-group">
                                             <label>Subject<span class="text-danger">*</span></label>
                                             <input type="text" name="subject" value="{{ old('subject') }}"
-                                                class="form-control" placeholder="Enter Site Name">
+                                                class="form-control" placeholder="Enter Mail Subject">
                                             @if ($errors->has('subject'))
                                                 <small class="text text-danger">{{ $errors->first('subject') }}</small>
                                             @endif

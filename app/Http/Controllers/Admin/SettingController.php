@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\GeneralSettings;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class SettingController extends Controller
 {
@@ -138,6 +139,33 @@ class SettingController extends Controller
             return redirect()->route('admin.setting.about.us');
         } catch (\Exception $e) {
             DB::rollBack();
+            return redirect()->back();
+        }
+    }
+    /**
+     * Will test mail settings
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function testMail(Request $request)
+    {
+        try {
+            $data = [
+                'subject' => $request->subject,
+                'email' => $request->mail_to,
+                'content' => $request->mail_body
+            ];
+
+            Mail::send('mail.test_mail', $data, function ($message) use ($data) {
+                $message->to($data['email'])
+                    ->subject($data['subject']);
+            });
+
+            toastNofication('success', 'Mail sending success');
+            return redirect()->route('admin.setting.email');
+        } catch (\Exception $e) {
+            toastNofication('error', 'Mail sending failed');
             return redirect()->back();
         }
     }
