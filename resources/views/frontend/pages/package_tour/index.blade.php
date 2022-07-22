@@ -3,7 +3,7 @@
     Package Tour
 @stop
 @section('main_section')
-    <div class="banner">
+    <div class="tour-banner">
         <!-- container -->
         <div class="container">
             <div class="col-md-4 banner-left">

@@ -19,29 +19,23 @@
                         <ul class="slides">
                             <li>
                                 <div class="slider-info">
-                                    <img src="{{ asset('public/assets/frontend/images/1.jpg') }}" alt="">
+                                    <img src="{{ asset('public/assets/frontend/images/flight3.jpg') }}" alt=""
+                                        style="max-height: 466px">
                                 </div>
                             </li>
                             <li>
                                 <div class="slider-info">
-                                    <img src="{{ asset('public/assets/frontend/images/2.jpg') }}" alt="">
+                                    <img src="{{ asset('public/assets/frontend/images/flight2.jpg') }}" alt=""
+                                        style="max-height: 466px">
                                 </div>
                             </li>
                             <li>
                                 <div class="slider-info">
-                                    <img src="{{ asset('public/assets/frontend/images/3.jpg') }}" alt="">
+                                    <img src="{{ asset('public/assets/frontend/images/flight1.webp') }}" alt=""
+                                        style="max-height: 466px">
                                 </div>
                             </li>
-                            <li>
-                                <div class="slider-info">
-                                    <img src="{{ asset('public/assets/frontend/images/4.jpg') }}" alt="">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slider-info">
-                                    <img src="{{ asset('public/assets/frontend/images/2.jpg') }}" alt="">
-                                </div>
-                            </li>
+
                         </ul>
                     </div>
                 </section>
