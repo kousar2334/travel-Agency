@@ -41,4 +41,11 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/create-new-campain', [PromotionController::class, 'newCampain'])->name('admin.promotion.campain.new');
     Route::post('/store-new-campain', [PromotionController::class, 'storeNewCampain'])->name('admin.promotion.campain.new.store');
     Route::post('/delete-campain', [PromotionController::class, 'deleteCampain'])->name('admin.promotion.campain.delete');
+
+    Route::get('/deals', [PromotionController::class, 'deals'])->name('admin.promotion.deals');
+    Route::get('/add-new-deal', [PromotionController::class, 'newDeal'])->name('admin.promotion.deals.add.new');
+    Route::post('/store-new-deal', [PromotionController::class, 'storeNewDeal'])->name('admin.promotion.deals.store.new');
+    Route::post('/delete-deal', [PromotionController::class, 'deleteDeal'])->name('admin.promotion.deals.delete');
+    Route::get('/edit-deal/{id}', [PromotionController::class, 'editDeal'])->name('admin.promotion.deals.edit');
+    Route::post('/update-deal', [PromotionController::class, 'updateDeal'])->name('admin.promotion.deals.update');
 });

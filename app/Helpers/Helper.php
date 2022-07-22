@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Campains;
+use App\Models\Deals;
 use App\Models\GeneralSettings;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -29,6 +30,13 @@ if (!function_exists('activeCampains')) {
     function activeCampains()
     {
         return Campains::where('status', 1)->orderBy('id', 'DESC')->get();
+    }
+}
+
+if (!function_exists('activeDeals')) {
+    function activeDeals()
+    {
+        return Deals::where('status', 1)->orderBy('id', 'DESC')->get();
     }
 }
 

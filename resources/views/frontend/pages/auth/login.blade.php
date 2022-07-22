@@ -40,14 +40,6 @@
                         <div class="book-left-info">
                             <h3>Recommended</h3>
                         </div>
-                        <div class="book-left-bottom">
-                            <div class="book-left-facebook">
-                                <a href="#">Connect with Facebook</a>
-                            </div>
-                            <div class="book-left-chrome">
-                                <a href="#">Connect with Google</a>
-                            </div>
-                        </div>
                         <ul>
                             <li>Access booking history with upcoming trips</li>
                             <li>Print tickets and invoices</li>
@@ -55,6 +47,13 @@
                             <li>Enter your contact details only once</li>
                             <li>Get alerts for low fares</li>
                         </ul>
+                        <div class="book-left-bottom">
+                            <div>
+                                <a href="#">Register Now</a>
+                            </div>
+
+                        </div>
+
                     </div>
                     <div class="clearfix"> </div>
                 </div>

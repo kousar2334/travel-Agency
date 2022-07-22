@@ -7,7 +7,7 @@ $siteInfo = siteInfo();
             @if ($siteInfo->logo != null)
                 <img src="{{ asset('/public') }}/{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
             @else
-                <span class="brand-text bangla-font font-weight-light text-center"> {{ $siteInfo->site_name }}</span>
+                <span class="brand-text bangla-font font-weight-light"> {{ $siteInfo->site_name }}</span>
             @endif
 
             <div>

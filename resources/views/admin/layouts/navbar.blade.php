@@ -18,8 +18,8 @@ $siteInfo = siteInfo();
                 @if (!empty(Auth::user()->image))
                     <img src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
                 @else
-                    <img src="{{ asset('/public/assets/backend/images/no-image.png') }}"
-                        class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('/public/assets/backend/images/no-image.png') }}" class="img-circle elevation-2"
+                        alt="User Image">
                 @endif
 
             </div>
@@ -120,7 +120,7 @@ $siteInfo = siteInfo();
                 <!--End  Messages Module-->
                 <!-- Tourist Visa-->
                 <li
-                    class="{{ Request::routeIs(['admin.promotion.campain.new', 'admin.promotion.campain']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.promotion.deals.edit', 'admin.promotion.deals.add.new', 'admin.promotion.deals', 'admin.promotion.campain.new', 'admin.promotion.campain']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-bullhorn"></i>
                         <p>
@@ -137,7 +137,8 @@ $siteInfo = siteInfo();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.promotion.deals') }}"
+                                class="{{ Request::routeIs('admin.promotion.deals') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Deals</p>
                             </a>

@@ -135,6 +135,6 @@
         <!-- //container -->
     </div>
     @include('frontend.layouts.scolling')
-    @include('frontend.layouts.popular_place')
-    @include('frontend.layouts.widgets')
+    @include('frontend.layouts.campains')
+    @include('frontend.layouts.deals')
 @stop
