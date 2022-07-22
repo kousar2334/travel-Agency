@@ -8,8 +8,8 @@ $siteInfo = siteInfo();
             <div class="col-md-3 footer-grid">
                 <h3><a href="{{ route('home') }}">{{ $siteInfo->site_name }}</a></h3>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="faqs.html">Contact us</a></li>
+                    <li><a href="{{ route('frontend.about.us') }}">About Us</a></li>
+                    <li><a href="{{ route('frontend.contact.us') }}">Contact us</a></li>
 
                 </ul>
             </div>

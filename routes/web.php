@@ -25,6 +25,7 @@ Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
 
+
 //Fligts Routes
 Route::view('/flights', 'frontend.pages.flight.index')->name('frontend.flight');
 Route::group(['middleware' => 'auth:user'], function () {
@@ -61,6 +62,9 @@ Route::group(['middleware' => 'auth:user'], function () {
 //Contact us
 Route::view('/contact-us', 'frontend.pages.contact_us.index')->name('frontend.contact.us');
 Route::post('/store-contact-us-message', [ContactUsController::class, 'storeContactUs'])->name('frontend.contact.us.store');
+
+//Abount us
+Route::view('/about-us', 'frontend.pages.about_us')->name('frontend.about.us');
 //Auth
 Route::get('/login', [UserController::class, 'loginPage'])->name('frontend.login');
 Route::post('/login', [UserController::class, 'login'])->name('frontend.login.process');
