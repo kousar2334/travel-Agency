@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\FlightBooking;
+use App\Models\Admin;
 use App\Models\HajjQuery;
+use Illuminate\Http\Request;
+use App\Models\FlightBooking;
 use App\Models\HoltelBooking;
 use App\Models\PackageTourQuery;
 use App\Models\StudentVisaQuery;
 use App\Models\TouristVisaQuery;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except('logout');
-    //     $this->middleware('guest:user')->except('logout');
-    //     $this->middleware('guest:admin')->except('logout');
-    // }
+
     /**
      * Redirect to admin login page
      * 
@@ -93,10 +90,164 @@ class AdminController extends Controller
             ]
         );
     }
-
+    /**
+     * Will logout admin
+     *
+     *@return mixed
+     */
     public function logout()
     {
         Auth::guard('admin')->logout();
         return redirect('/admin/login');
+    }
+    /**
+     * Will return users list
+     * 
+     * @return mixed
+     */
+    public function users()
+    {
+        return view('admin.pages.users.index')->with([
+            'users' => Admin::orderBy('id', 'DESC')->get()
+        ]);
+    }
+    /**
+     * redirect to new user page
+     * 
+     * @return mixed
+     */
+    public function newUser()
+    {
+        return view('admin.pages.users.new_user');
+    }
+    /**
+     * Will store new user
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function storeNewUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required', 'email', 'unique:admins',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        if ($request->has('image')) {
+            $directory = "uploads/user/";
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+            $imageName = date('mdYHis') . 'user.' . $extension;
+            $image->move(public_path($directory), $imageName);
+            $image = $directory . '' . $imageName;
+            $p_image = $image;
+        } else {
+            $p_image = "";
+        }
+        try {
+            $user = new Admin;
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->image = $p_image;
+            $user->password = Hash::make($request->password);
+            $user->save();
+            toastNofication('success', 'New user added successfully');
+            return redirect()->route('admin.users');
+        } catch (\Exception $e) {
+            toastNofication('error', 'user create failed');
+            return redirect()->back();
+        }
+    }
+    /**
+     * Will delete user
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function deleteUser(Request $request)
+    {
+        try {
+            $user = Admin::findOrFail($request['id']);
+            $user->delete();
+            toastNofication('success', 'User deleted successfully');
+            return redirect()->route('admin.users');
+        } catch (\Exception $e) {
+            toastNofication('error', 'user delete failed');
+            return redirect()->back();
+        }
+    }
+    /**
+     * Will redirect user edit page
+     *
+     * @param Int $id
+     * @return mixed 
+     */
+    public function editUser($id)
+    {
+        return view('admin.pages.users.edit')->with([
+            'user' => Admin::findOrFail($id)
+        ]);
+    }
+    /**
+     * Will update  user
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function updateUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required', 'email', 'unique:admins',
+        ]);
+        $user = Admin::findOrFail($request['id']);
+        if ($request->has('image')) {
+            $directory = "uploads/user/";
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+            $imageName = date('mdYHis') . 'user.' . $extension;
+            $image->move(public_path($directory), $imageName);
+            $image = $directory . '' . $imageName;
+            $p_image = $image;
+        } else {
+            $p_image = $user->image;
+        }
+        try {
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->status = $request['status'];
+            $user->image = $p_image;
+            $user->save();
+            toastNofication('success', 'User updated successfully');
+            return redirect()->route('admin.users');
+        } catch (\Exception $e) {
+            toastNofication('error', 'user update failed');
+            return redirect()->back();
+        }
+    }
+    /**
+     * Update user password
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function updateUserPassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        try {
+            $user = Admin::findOrFail($request['id']);
+            $user->password = Hash::make($request->password);
+            $user->save();
+            toastNofication('success', 'Password updated successfully');
+            return redirect()->route('admin.users');
+        } catch (\Exception $e) {
+            toastNofication('error', 'Password update failed');
+            return redirect()->back();
+        }
     }
 }

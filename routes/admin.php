@@ -63,4 +63,13 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/delete-deal', [PromotionController::class, 'deleteDeal'])->name('admin.promotion.deals.delete');
     Route::get('/edit-deal/{id}', [PromotionController::class, 'editDeal'])->name('admin.promotion.deals.edit');
     Route::post('/update-deal', [PromotionController::class, 'updateDeal'])->name('admin.promotion.deals.update');
+
+    //users
+    Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+    Route::get('/add-new-user', [AdminController::class, 'newUser'])->name('admin.users.add.new');
+    Route::post('/store-new-user', [AdminController::class, 'storeNewUser'])->name('admin.users.store.new');
+    Route::post('/delete-user', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
+    Route::get('/edit-user/{id}', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::post('/update-user', [AdminController::class, 'updateUser'])->name('admin.users.update');
+    Route::post('/update-user-password', [AdminController::class, 'updateUserPassword'])->name('admin.users.update.password');
 });

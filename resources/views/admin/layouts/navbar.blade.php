@@ -16,7 +16,8 @@ $siteInfo = siteInfo();
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 @if (!empty(Auth::user()->image))
-                    <img src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('public') }}/{{ Auth::user()->image }}" class="img-circle elevation-2"
+                        alt="User Image" style="min-height: 30px">
                 @else
                     <img src="{{ asset('/public/assets/backend/images/no-image.png') }}" class="img-circle elevation-2"
                         alt="User Image">
@@ -24,7 +25,7 @@ $siteInfo = siteInfo();
 
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                <a href="{{ route('admin.users.edit', Auth::user()->id) }}" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -198,23 +199,15 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End Settings Module-->
                 <!-- Users-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li
+                    class="{{ Request::routeIs(['admin.users.edit', 'admin.users.add.new', 'admin.users']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.users') }}"
+                        class="{{ Request::routeIs(['admin.users']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Users
-                            <i class="fas fa-angle-left right"></i>
+                            Users</i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>new</p>
-                            </a>
-                        </li>
-
-                    </ul>
                 </li>
                 <!--End Users Module-->
 
