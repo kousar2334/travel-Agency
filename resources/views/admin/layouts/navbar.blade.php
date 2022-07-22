@@ -75,8 +75,9 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End Package Tour Module-->
                 <!-- HAJJ & UMRAH -->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.hajj.queries']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.hajj.queries') }}"
+                        class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
                             Hajj & Umrah

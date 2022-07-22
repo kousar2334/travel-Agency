@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\HajjController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FlightController;
 use App\Http\Controllers\Admin\HotelsController;
@@ -21,6 +22,9 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
 
     //Air tickets
     Route::get('/air-tickets', [FlightController::class, 'index'])->name('admin.air.tickets');
+
+    //Hajj 
+    Route::get('/hajj-queries', [HajjController::class, 'hajjQueries'])->name('admin.hajj.queries');
 
     //Hotel Bookings
     Route::get('/hotel-bookings', [HotelsController::class, 'index'])->name('admin.hotel.bookings');

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Frontend\HajjController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\FlightController;
 use App\Http\Controllers\Frontend\HotelsController;
@@ -36,6 +37,7 @@ Route::group(['middleware' => 'auth:user'], function () {
 
 //Hajj
 Route::view('/hajj-umrah', 'frontend.pages.hajj.index')->name('frontend.hajj');
+Route::post('/hajj-umrah-send-query', [HajjController::class, 'storeHajjQuery'])->name('frontend.hajj.store.query');
 
 //student visa
 Route::view('/student-visa', 'frontend.pages.student_visa.index')->name('frontend.visa.student');

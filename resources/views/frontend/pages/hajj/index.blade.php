@@ -44,82 +44,73 @@
                                         $("#datepicker,#datepicker1").datepicker();
                                     });
                                 </script>
-                                <!---/End-date-piker---->
-                                <!-- Set here the key for your domain in order to hide the watermark on the web server -->
-
                                 <div class="online_reservation">
                                     <div class="b_room">
                                         <div class="booking_room">
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Full Name</h5>
-                                                        <div class="book_date">
-                                                            <form>
+                                            <form action="{{ route('frontend.hajj.store.query') }}" method="post">
+                                                @csrf
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Full Name</h5>
+                                                            <div class="book_date">
 
                                                                 <input type="text" placeholder="Full Name"
+                                                                    name="full_name" value="{{ old('full_name') }}"
                                                                     class="typeahead1 input-md form-control tt-input"
                                                                     required="">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Phone</h5>
-                                                        <div class="book_date">
-                                                            <form>
-
-                                                                <input type="text" placeholder="Phone"
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Phone</h5>
+                                                            <div class="book_date">
+                                                                <input type="text" name="phone"
+                                                                    value="{{ old('phone') }}" placeholder="Phone"
                                                                     class="typeahead1 input-md form-control tt-input"
                                                                     required="">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Email</h5>
-                                                        <div class="book_date">
-                                                            <form>
-
-                                                                <input type="text" placeholder="Email"
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Email</h5>
+                                                            <div class="book_date">
+                                                                <input type="text" name="email"
+                                                                    value="{{ old('email') }}" placeholder="Email"
                                                                     class="typeahead1 input-md form-control tt-input"
                                                                     required="">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Comment</h5>
-                                                        <div class="book_date">
-                                                            <form>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Comment</h5>
+                                                            <div class="book_date">
+                                                                <textarea class="typeahead1 input-md form-control tt-input" name="comment" required=""></textarea>
 
-                                                                <textarea class="typeahead1 input-md form-control tt-input" required=""></textarea>
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_3">
-                                                        <div class="date_btn">
-                                                            <form>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_3">
+                                                            <div class="date_btn">
                                                                 <input type="submit" value="Sumbit" />
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                    <div class="clearfix"></div>
-                                                </ul>
-                                            </div>
+                                                            </div>
+                                                        </li>
+                                                        <div class="clearfix"></div>
+                                                    </ul>
+                                                </div>
+                                            </form>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
