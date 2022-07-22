@@ -71,7 +71,7 @@
 
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
-                    <div class="small-box bg-success">
+                    <div class="small-box bg-primary">
                         <div class="inner">
                             <h3>{{ $total_student_visa }}<sup style="font-size: 20px"></sup></h3>
                             <p class="">Student Visa</p>
@@ -83,7 +83,7 @@
 
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{ $total_tourist_visa }}<sup style="font-size: 20px"></sup></h3>
                             <p class="">Tourist Visa</p>
@@ -97,7 +97,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="card mt-3 card card-success">
+                    <div class="card mt-3 card">
                         <div class="card-header py-3">
                             <h3 class="card-title ">Latest Hotel Bookings</h3>
                             <div class="card-tools">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="card mt-3 card-info">
+                    <div class="card mt-3">
                         <div class="card-header py-3">
                             <h3 class="card-title ">Latest Air Ticket Bookings</h3>
                             <div class="card-tools">
@@ -162,7 +162,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="card mt-3 card-success">
+                    <div class="card mt-3">
                         <div class="card-header py-3">
                             <h3 class="card-title ">Latest Student Visa Queries</h3>
                             <div class="card-tools">
@@ -196,7 +196,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="card mt-3 card-info">
+                    <div class="card mt-3">
                         <div class="card-header py-3">
                             <h3 class="card-title ">Latest Tourist Visa Queries</h3>
                             <div class="card-tools">
@@ -231,7 +231,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="card mt-3 card-danger">
+                    <div class="card mt-3">
                         <div class="card-header py-3">
                             <h3 class="card-title ">Latest Hajj Bookings</h3>
                             <div class="card-tools">
@@ -263,7 +263,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="card mt-3 card-warning">
+                    <div class="card mt-3 ">
                         <div class="card-header py-3">
                             <h3 class="card-title ">Latest Package Tour Bookings</h3>
                             <div class="card-tools">
