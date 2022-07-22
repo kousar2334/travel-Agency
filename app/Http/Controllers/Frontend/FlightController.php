@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Models\FlightBooking;
 use App\Http\Controllers\Controller;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 
 class FlightController extends Controller
@@ -32,11 +31,11 @@ class FlightController extends Controller
             // $data = $booking;
             // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
 
-            Toastr::success('Flight Booking Request Sending Successfully');
+
+            toastNofication('success', 'Flight Booking Request Sending Successfully');
             return redirect()->route('home');
         } catch (\Exception $e) {
-            dd($e);
-            Toastr::error('Request Sending Failed', 'Failed');
+            toastNofication('error', 'Request Sending Failed');
             return redirect()->back();
         }
     }

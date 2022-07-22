@@ -64,8 +64,9 @@ $siteInfo = siteInfo();
                 </li>
                 <!--End  Air Tickets Module-->
                 <!-- Package Tour-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.tour.package.queries']) ? 'menu-open' : '' }} nav-item">
+                    <a href="{{ route('admin.tour.package.queries') }}"
+                        class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Package Tour

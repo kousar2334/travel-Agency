@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Frontend\HajjController;
+use App\Http\Controllers\Frontend\TourController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\VisaController;
 use App\Http\Controllers\Frontend\FlightController;
@@ -50,7 +51,9 @@ Route::view('/tourist-visa', 'frontend.pages.tourist_visa.index')->name('fronten
 
 //Package tour
 Route::view('/package-tour', 'frontend.pages.package_tour.index')->name('frontend.tour.package');
-
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::post('/store-package-tour-query',  [TourController::class, 'storePackageToutQuery'])->name('frontend.tour.package.store.query');
+});
 //Contact us
 Route::view('/contact-us', 'frontend.pages.contact_us.index')->name('frontend.contact.us');
 Route::post('/store-contact-us-message', [ContactUsController::class, 'storeContactUs'])->name('frontend.contact.us.store');

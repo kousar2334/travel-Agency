@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HajjController;
+use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\VisaController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FlightController;
@@ -29,6 +30,9 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
 
     //student visa
     Route::get('/student-visa-queries', [VisaController::class, 'studentVisaQueries'])->name('admin.visa.student.queries');
+
+    //student visa
+    Route::get('/package-tour-queries', [TourController::class, 'packageTourQueries'])->name('admin.tour.package.queries');
 
     //Hotel Bookings
     Route::get('/hotel-bookings', [HotelsController::class, 'index'])->name('admin.hotel.bookings');

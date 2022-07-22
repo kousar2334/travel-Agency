@@ -62,63 +62,64 @@
                                 <div class="online_reservation">
                                     <div class="b_room">
                                         <div class="booking_room">
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1 desti about-desti">
-                                                        <h5>Destination</h5>
-                                                        <div class="book_date">
-                                                            <form>
+                                            <form method="POST" action="{{ route('frontend.tour.package.store.query') }}">
+                                                @csrf
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1 desti about-desti">
+                                                            <h5>Destination</h5>
+                                                            <div class="book_date">
                                                                 <span class="glyphicon glyphicon-map-marker"
                                                                     aria-hidden="true"></span>
-                                                                <input type="text" placeholder="City, Area or Hotel Name"
+                                                                <input type="text" name="destination"
+                                                                    value="{{ old('destination') }}"
+                                                                    placeholder="City, Area or Hotel Name"
                                                                     class="typeahead1 input-md form-control tt-input"
                                                                     required="">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_1">
-                                                        <h5>From</h5>
-                                                        <div class="book_date">
-                                                            <form>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_1">
+                                                            <h5>From</h5>
+                                                            <div class="book_date">
                                                                 <span class="glyphicon glyphicon-calendar"
                                                                     aria-hidden="true"></span>
-                                                                <input type="date" value="Select date"
+                                                                <input type="date" name="start_date"
+                                                                    value="{{ old('start_date') }}"
                                                                     onfocus="this.value = '';"
-                                                                    onblur="if (this.value == '') {this.value = 'Select date';}">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                    <li class="span1_of_1 left">
-                                                        <h5>To</h5>
-                                                        <div class="book_date">
-                                                            <form>
+                                                                    onblur="if (this.value == '') {this.value = 'Select date';}"
+                                                                    required>
+                                                            </div>
+                                                        </li>
+                                                        <li class="span1_of_1 left">
+                                                            <h5>To</h5>
+                                                            <div class="book_date">
                                                                 <span class="glyphicon glyphicon-calendar"
                                                                     aria-hidden="true"></span>
-                                                                <input type="date" value="Select date"
-                                                                    onfocus="this.value = '';"
-                                                                    onblur="if (this.value == '') {this.value = 'Select date';}">
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                    <div class="clearfix"></div>
-                                                </ul>
-                                            </div>
-                                            <div class="reservation">
-                                                <ul>
-                                                    <li class="span1_of_3">
-                                                        <div class="date_btn">
-                                                            <form>
-                                                                <input type="submit" value="Search" />
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                    <div class="clearfix"></div>
-                                                </ul>
-                                            </div>
+                                                                <input type="date" name="end_date"
+                                                                    value="{{ old('end_date') }}" onfocus="this.value = '';"
+                                                                    onblur="if (this.value == '') {this.value = 'Select date';}"
+                                                                    required>
+                                                            </div>
+                                                        </li>
+                                                        <div class="clearfix"></div>
+                                                    </ul>
+                                                </div>
+                                                <div class="reservation">
+                                                    <ul>
+                                                        <li class="span1_of_3">
+                                                            <div class="date_btn">
+                                                                <input type="submit" value="Submit" />
+                                                            </div>
+                                                        </li>
+                                                        <div class="clearfix"></div>
+                                                    </ul>
+                                                </div>
+
+                                            </form>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
