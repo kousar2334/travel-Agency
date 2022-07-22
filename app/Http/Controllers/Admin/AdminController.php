@@ -4,6 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\FlightBooking;
+use App\Models\HajjQuery;
+use App\Models\HoltelBooking;
+use App\Models\PackageTourQuery;
+use App\Models\StudentVisaQuery;
+use App\Models\TouristVisaQuery;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -52,7 +58,40 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        return view('admin.dashboard.dashboard');
+        $total_hotel_bookings = HoltelBooking::all()->count();
+        $latest_hotel_bookings = HoltelBooking::orderBy('id', 'DESC')->get()->take(5);
+
+        $total_flight_bookings = FlightBooking::all()->count();
+        $latest_flight_bookings = FlightBooking::orderBy('id', 'DESC')->get()->take(5);
+
+        $total_hajj_bookings = HajjQuery::all()->count();
+        $latest_hajj_bookings = HajjQuery::orderBy('id', 'DESC')->get()->take(5);
+
+        $total_tour_bookings = PackageTourQuery::all()->count();
+        $latest_tour_bookings = PackageTourQuery::orderBy('id', 'DESC')->get()->take(5);
+
+        $total_student_visa = StudentVisaQuery::all()->count();
+        $latest_student_visa = StudentVisaQuery::orderBy('id', 'DESC')->get()->take(5);
+
+        $total_tourist_visa = TouristVisaQuery::all()->count();
+        $latest_tourist_visa = TouristVisaQuery::orderBy('id', 'DESC')->get()->take(5);
+
+        return view('admin.dashboard.dashboard')->with(
+            [
+                'total_hotel_bookings' => $total_hotel_bookings,
+                'latest_hotel_bookings' => $latest_hotel_bookings,
+                'total_flight_bookings' => $total_flight_bookings,
+                'latest_flight_bookings' => $latest_flight_bookings,
+                'total_hajj_bookings' => $total_hajj_bookings,
+                'latest_hajj_bookings' => $latest_hajj_bookings,
+                'total_tour_bookings' => $total_tour_bookings,
+                'latest_tour_bookings' => $latest_tour_bookings,
+                'total_student_visa' => $total_student_visa,
+                'latest_student_visa' => $latest_student_visa,
+                'total_tourist_visa' => $total_tourist_visa,
+                'latest_tourist_visa' => $latest_tourist_visa,
+            ]
+        );
     }
 
     public function logout()

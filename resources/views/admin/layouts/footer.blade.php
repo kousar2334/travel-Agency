@@ -7,7 +7,7 @@ $siteInfo = siteInfo();
             @if ($siteInfo->logo != null)
                 <img src="{{ asset('/public') }}/{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
             @else
-                <span class="brand-text bangla-font font-weight-light"> {{ $siteInfo->site_name }}</span>
+                <span class="brand-text"> {{ $siteInfo->site_name }}</span>
             @endif
 
             <div>
@@ -23,10 +23,10 @@ $siteInfo = siteInfo();
         <div class="col-md-2">
 
         </div>
-        <div class="col-md-2">
+        {{-- <div class="col-md-2">
             <ul>
                 <li><a href="#">Developed By Kousar Rahman</a></li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </footer>

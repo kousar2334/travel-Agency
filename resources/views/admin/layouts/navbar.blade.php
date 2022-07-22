@@ -67,7 +67,7 @@ $siteInfo = siteInfo();
                 <li class="{{ Request::routeIs(['admin.tour.package.queries']) ? 'menu-open' : '' }} nav-item">
                     <a href="{{ route('admin.tour.package.queries') }}"
                         class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-globe"></i>
+                        <i class="nav-icon fas fa-suitcase-rolling"></i>
                         <p>
                             Package Tour
                         </p>
@@ -79,7 +79,7 @@ $siteInfo = siteInfo();
                 <li class="{{ Request::routeIs(['admin.hajj.queries']) ? 'menu-open' : '' }} nav-item">
                     <a href="{{ route('admin.hajj.queries') }}"
                         class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-motorcycle"></i>
+                        <i class="nav-icon fas fa-mosque"></i>
                         <p>
                             Hajj & Umrah
                         </p>
@@ -103,7 +103,7 @@ $siteInfo = siteInfo();
                 <li class="{{ Request::routeIs(['admin.visa.tourist.queries']) ? 'menu-open' : '' }} nav-item">
                     <a href="{{ route('admin.visa.tourist.queries') }}"
                         class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-motorcycle"></i>
+                        <i class="nav-icon fas fa-plane-departure"></i>
                         <p>
                             Tourist Visa
                         </p>
