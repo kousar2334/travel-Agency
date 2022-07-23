@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\HajjQuery;
 use Illuminate\Http\Request;
+use App\Mail\HajjBookingMail;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class HajjController extends Controller
 {
@@ -23,14 +25,14 @@ class HajjController extends Controller
             $query->email = $request['email'];
             $query->comment = $request['comment'];
             $query->save();
-            // $data = $booking;
-            // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
+
+            Mail::to(siteInfo()->email)->send(new HajjBookingMail($query));
 
             toastNofication('success', 'Your request is sending successfully');
             return redirect()->route('home');
         } catch (\Exception $e) {
             dd($e);
-            Toastr::error('Request Sending Failed', 'Failed');
+            Toastr::error('Request Sending Failed');
             return redirect()->back();
         }
     }
