@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
+use App\Mail\StudentVisaMail;
 use App\Models\StudentVisaQuery;
-use App\Http\Controllers\Controller;
 use App\Models\TouristVisaQuery;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class VisaController extends Controller
 {
@@ -24,12 +26,13 @@ class VisaController extends Controller
             $student_visa->degree = $request['degree'];
             $student_visa->user_id = Auth::user()->id;
             $student_visa->save();
-            // $data = $booking;
-            // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
+
+            Mail::to(siteInfo()->email)->send(new StudentVisaMail($student_visa));
 
             toastNofication('success', 'Successfully sumitted');
             return redirect()->route('home');
         } catch (\Exception $e) {
+            toastNofication('error', 'Sending Failed');
             return redirect()->back();
         }
     }
