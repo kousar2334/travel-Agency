@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
+use App\Mail\PackageTourBooking;
 use App\Models\PackageTourQuery;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class TourController extends Controller
 {
@@ -24,11 +26,11 @@ class TourController extends Controller
             $tour_query->end_date = $request['end_date'];
             $tour_query->user_id = Auth::user()->id;
             $tour_query->save();
-            // $data = $booking;
-            // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
+
+            Mail::to(siteInfo()->email)->send(new PackageTourBooking($tour_query));
 
 
-            toastNofication('success', 'Sending successfully');
+            toastNofication('success', 'Request sending successfully');
             return redirect()->route('home');
         } catch (\Exception $e) {
             toastNofication('error', 'Request Sending Failed');

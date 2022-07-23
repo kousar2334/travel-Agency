@@ -15,6 +15,10 @@
                 <td>{{ Auth::guard('user')->user()->phone }}</td>
             </tr>
             <tr>
+                <td>Email</td>
+                <td>{{ Auth::guard('user')->user()->email }}</td>
+            </tr>
+            <tr>
                 <td>Destination</td>
                 <td>{{ $data->destination }}</td>
             </tr>
