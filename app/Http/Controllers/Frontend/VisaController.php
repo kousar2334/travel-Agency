@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Mail\StudentVisaMail;
+use App\Mail\TouristVisaMail;
 use App\Models\StudentVisaQuery;
 use App\Models\TouristVisaQuery;
 use App\Http\Controllers\Controller;
@@ -50,12 +51,13 @@ class VisaController extends Controller
             $tourist_visa->comment = $request['comment'];
             $tourist_visa->user_id = Auth::user()->id;
             $tourist_visa->save();
-            // $data = $booking;
-            // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
+
+            Mail::to(siteInfo()->email)->send(new TouristVisaMail($tourist_visa));
 
             toastNofication('success', 'Successfully sumitted');
             return redirect()->route('home');
         } catch (\Exception $e) {
+            toastNofication('error', 'Sending Failed');
             return redirect()->back();
         }
     }
