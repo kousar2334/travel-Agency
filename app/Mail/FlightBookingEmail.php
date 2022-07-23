@@ -16,9 +16,11 @@ class FlightBookingEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    protected  $data;
+
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +30,8 @@ class FlightBookingEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('mail.flight_booking')->with([
+            'data' => $this->data
+        ]);
     }
 }

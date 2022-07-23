@@ -17,6 +17,7 @@ class HotelBookingEmail extends Mailable
      * @return void
      */
     protected  $data;
+
     public function __construct($data)
     {
         $this->data = $data;

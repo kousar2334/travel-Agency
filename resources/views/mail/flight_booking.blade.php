@@ -1,10 +1,10 @@
 @extends('mail.layouts.master')
 @section('mail_title')
-    Hotel Boiking Request
+    Air Ticket Boiking Request
 @stop
 @section('mail_body')
     <div class="container">
-        <h2 class="title">Hotel Booking Email</h2>
+        <h2 class="title">Air Ticket Booking Email</h2>
         <table>
             <tr>
                 <td>Name</td>
@@ -19,12 +19,16 @@
                 <td>{{ $data->destination }}</td>
             </tr>
             <tr>
-                <td>Check in</td>
-                <td>{{ $data->check_in }}</td>
+                <td>Form Where</td>
+                <td>{{ $data->pickup_point }}</td>
             </tr>
             <tr>
-                <td>Check out</td>
-                <td>{{ $data->check_out }}</td>
+                <td>Departure</td>
+                <td>{{ $data->departure }}</td>
+            </tr>
+            <tr>
+                <td>Return Date</td>
+                <td>{{ $data->return_date }}</td>
             </tr>
             <tr>
                 <td>Adults</td>
@@ -35,8 +39,8 @@
                 <td>{{ $data->Children }}</td>
             </tr>
             <tr>
-                <td>Rooms</td>
-                <td>{{ $data->rooms }}</td>
+                <td>Class</td>
+                <td>{{ $data->class }}</td>
             </tr>
         </table>
     </div>

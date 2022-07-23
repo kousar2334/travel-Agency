@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Models\FlightBooking;
+use App\Mail\FlightBookingEmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FlightController extends Controller
 {
@@ -28,8 +30,8 @@ class FlightController extends Controller
             $booking->class = $request['class'];
             $booking->user_id = Auth::user()->id;
             $booking->save();
-            // $data = $booking;
-            // Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
+            $data = $booking;
+            Mail::to(siteInfo()->email)->send(new FlightBookingEmail($data));
 
 
             toastNofication('success', 'Flight Booking Request Sending Successfully');

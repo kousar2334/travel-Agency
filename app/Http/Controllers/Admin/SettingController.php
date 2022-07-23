@@ -157,11 +157,10 @@ class SettingController extends Controller
                 'content' => $request->mail_body
             ];
 
-            Mail::send('mail.test_mail', $data, function ($message) use ($data) {
+            $ress = Mail::send('mail.test_mail', $data, function ($message) use ($data) {
                 $message->to($data['email'])
                     ->subject($data['subject']);
             });
-
             toastNofication('success', 'Mail sending success');
             return redirect()->route('admin.setting.email');
         } catch (\Exception $e) {

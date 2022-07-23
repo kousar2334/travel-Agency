@@ -30,7 +30,7 @@ class HotelsController extends Controller
             $booking->user_id = Auth::user()->id;
             $booking->save();
             $data = $booking;
-            Mail::to('kousar.cse2334@gmail.com')->send(new HotelBookingEmail($data));
+            Mail::to(siteInfo()->email)->send(new HotelBookingEmail($data));
 
             toastNofication('success', 'Hotel Booking Request Sending Successfully');
             return redirect()->route('home');

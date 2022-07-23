@@ -51,8 +51,7 @@
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
-                                <span class="float-right text-sm"><a href="#"><i
-                                            class="fas fa-cog"></i></a></span>
+
                             </h3>
                             <p class="text-sm">{{ Auth::user()->email }}</p>
                             <a href="{{ route('admin.logout') }}" class="text-sm">
