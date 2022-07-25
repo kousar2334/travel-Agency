@@ -172,7 +172,7 @@ $siteInfo = siteInfo();
                             <a href="{{ route('admin.setting.general') }}"
                                 class="{{ Request::routeIs('admin.setting.general') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>General Settings</p>
+                                <p>Site Settings</p>
                             </a>
                         </li>
                         <li class="nav-item">

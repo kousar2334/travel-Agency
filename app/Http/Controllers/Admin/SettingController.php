@@ -65,7 +65,9 @@ class SettingController extends Controller
                     'site_name' => $request->site_name,
                     'phone' => $request->phone,
                     'email' => $request->email,
-                    'address' => $request->address
+                    'address' => $request->address,
+                    'fb_link' => $request->fb_link,
+                    'twitter_link' => $request->twitter_link
                 ]);
             DB::commit();
             toastNofication('success', 'Settings updated successfully');

@@ -36,8 +36,12 @@ $siteInfo = siteInfo();
                 <h4>Follow Us</h4>
                 <div class="social">
                     <ul>
-                        <li><a href="#" class="facebook"> </a></li>
-                        <li><a href="#" class="facebook twitter"> </a></li>
+                        @if ($siteInfo->fb_link != null)
+                            <li><a href="{{ $siteInfo->fb_link }}" class="facebook"> </a></li>
+                        @endif
+                        @if ($siteInfo->twitter_link != null)
+                            <li><a href="{{ $siteInfo->twitter_link }}" class="facebook twitter"> </a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/contact-us-messages', [ContactUsController::class, 'messages'])->name('admin.contact.messages');
 
     //Settings
-    Route::get('/general-settings', [SettingController::class, 'generalSettings'])->name('admin.setting.general');
+    Route::get('/site-settings', [SettingController::class, 'generalSettings'])->name('admin.setting.general');
     Route::post('/update-general-settings', [SettingController::class, 'updateGeneralSettings'])->name('admin.setting.general.update');
     Route::get('/email-settings', [SettingController::class, 'emailSettings'])->name('admin.setting.email');
     Route::post('/update-email-settings', [SettingController::class, 'updateEmailSettings'])->name('admin.setting.email.update');

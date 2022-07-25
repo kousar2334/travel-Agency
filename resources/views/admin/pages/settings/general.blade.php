@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    General Settings
+    Site Settings
 @stop
 @section('custom_css')
 @stop
@@ -11,7 +11,7 @@
                 <div class="col-lg-6 mx-auto col-sm-12 mt-3">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">General Settings</h3>
+                            <h3 class="card-title">Site Settings</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.setting.general.update') }}" method="POST"
@@ -73,6 +73,23 @@
                                             <textarea class="form-control" name="address" rows="3" placeholder="Enter Address">{{ $settings->address }}</textarea>
                                             @if ($errors->has('address'))
                                                 <small class="text text-danger">{{ $errors->first('address') }}</small>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Facebook Page</label>
+                                            <input type="text" name="fb_link" value="{{ $settings->fb_link }}"
+                                                class="form-control" placeholder="Enter Facebook Page">
+                                            @if ($errors->has('fb_link'))
+                                                <small class="text text-danger">{{ $errors->first('fb_link') }}</small>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Twitter Link</label>
+                                            <input type="text" name="twitter_link" value="{{ $settings->twitter_link }}"
+                                                class="form-control" placeholder="Enter Twitter Link">
+                                            @if ($errors->has('twitter_link'))
+                                                <small
+                                                    class="text text-danger">{{ $errors->first('twitter_link') }}</small>
                                             @endif
                                         </div>
                                     </div>
