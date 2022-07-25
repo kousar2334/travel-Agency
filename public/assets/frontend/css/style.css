@@ -405,6 +405,12 @@ input:focus {
 	padding: 2em 0;
 }
 
+.s-btn {
+	background: #6fd508;
+	color: white;
+	padding: 7px 20px;
+}
+
 .offer {
 	margin: 1em 0 0 0;
 	border: solid 1px #FFF;
@@ -779,6 +785,10 @@ input[type="submit"] {
 	color: #777;
 	font-size: .9em;
 	text-decoration: none;
+}
+
+.footer-text {
+	margin-top: 10px;
 }
 
 .campain-banner {
@@ -1362,7 +1372,7 @@ ul#flexiselDemo1 li a h4:hover {
 
 .footer-grid ul {
 	padding: 0;
-	margin: 1.5em 0 0 0;
+	/* margin: 1.5em 0 0 0; */
 }
 
 .footer-grid ul li {

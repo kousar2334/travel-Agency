@@ -12,7 +12,7 @@
              @foreach ($deals as $deal)
                  <div class="col-md-4 banner-bottom-grid mb-20">
                      <div class="banner-bottom-middle">
-                         <a href="#">
+                         <a href="{{ route('frontend.contact.us', ['message' => $deal->title]) }}">
                              <img src="{{ asset('public/') }}/{{ $deal->banner }}"" alt="" />
                              <div class="destinations-grid-info tours">
                                  <h5>{{ $deal->title }}</h5>

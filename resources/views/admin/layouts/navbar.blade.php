@@ -148,12 +148,12 @@ $siteInfo = siteInfo();
                                 <p>Deals</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="" class="{{ Request::routeIs('') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Scollings</p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
                 <!--End Tourist Visa Module-->

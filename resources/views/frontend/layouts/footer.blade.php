@@ -16,17 +16,18 @@ $siteInfo = siteInfo();
             <div class="col-md-3 footer-grid">
                 <h4>Important Links</h4>
                 <ul>
-                    <li><a href="index.html">Flight Schedule</a></li>
-                    <li><a href="flights-hotels.html">City Airline Routes</a></li>
-                    <li><a href="holidays.html">Holidays Packages</a></li>
-                    <li><a href="weekend.html">Weekend Getaways</a></li>
+                    <li><a href="{{ route('frontend.hajj') }}">Hajj & Umrah</a></li>
+                    <li><a href="{{ route('frontend.hotels') }}">Hotel Booking</a></li>
+                    <li><a href="{{ route('frontend.flight') }}">Flight Schedule</a></li>
+                    <li><a href="{{ route('frontend.visa.student') }}">Student Visa</a></li>
+                    <li><a href="{{ route('frontend.tour.package') }}">Holidays Packages</a></li>
 
                 </ul>
             </div>
 
             <div class="col-md-3 footer-grid">
                 <h4>Need Help ?</h4>
-                <p data-v-87798bcc="" class="text-small-regular">
+                <p data-v-87798bcc="" class="text-small-regular footer-text">
                     We are Always here for you! Knock us
                     on Messenger anytime or Call our Hotline (10AM - 10PM).
                 </p>
@@ -37,8 +38,6 @@ $siteInfo = siteInfo();
                     <ul>
                         <li><a href="#" class="facebook"> </a></li>
                         <li><a href="#" class="facebook twitter"> </a></li>
-                        <li><a href="#" class="facebook chrome"> </a></li>
-                        <li><a href="#" class="facebook dribbble"> </a></li>
                     </ul>
                 </div>
             </div>

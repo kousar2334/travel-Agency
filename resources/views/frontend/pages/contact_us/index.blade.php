@@ -1,3 +1,9 @@
+@php
+$message = '';
+if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+}
+@endphp
 @extends('frontend.layouts.master')
 @section('page_title')
     Contact us
@@ -46,8 +52,7 @@
                                 <div class="clearfix"> </div>
                             </div>
                             <p class="your-para">Message</p>
-                            <textarea cols="77" name="message" rows="6" value="{{ old('message') }}" onfocus="this.value='';"
-                                onblur="if (this.value == '') {this.value = '';}">Message</textarea>
+                            <textarea cols="77" name="message" rows="6" value="{{ old('message') }}">{{ $message }}</textarea>
                             <div class="send">
                                 <input type="submit" value="Send">
                             </div>

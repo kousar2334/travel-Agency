@@ -11,8 +11,9 @@ $campains = activeCampains();
                 <ul id="flexiselDemo1">
                     @foreach ($campains as $key => $campain)
                         <li>
-                            <a href="products.html"><img src="{{ asset('public/') }}/{{ $campain->banner }}"
-                                    alt="{{ $campain->title }}" class="campain-banner" />
+                            <a href="{{ route('frontend.contact.us', ['message' => $campain->title]) }}"><img
+                                    src="{{ asset('public/') }}/{{ $campain->banner }}" alt="{{ $campain->title }}"
+                                    class="campain-banner" />
                             </a>
                         </li>
                     @endforeach

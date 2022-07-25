@@ -49,7 +49,7 @@
                         </ul>
                         <div class="book-left-bottom">
                             <div>
-                                <a href="#">Register Now</a>
+                                <a href="{{ route('frontend.signup') }}" class="s-btn">Register Now</a>
                             </div>
 
                         </div>
